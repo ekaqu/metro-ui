@@ -6,6 +6,9 @@ YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y)
     itemWidth = winWidth * .8,
     MIN_SWIPE = 10;
 
+  var itemFirst = panoramaItems.item(0),
+    itemLast = panoramaItems.item(panoramaItems.size()-1);
+
   panorama.setStyle('width', itemWidth * panoramaItemsCount + 20);
   panoramaItems.setStyle('width', itemWidth);
 
@@ -28,9 +31,13 @@ YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y)
             isSwipeRight = (swipeEnd - swipeStart ) > MIN_SWIPE;
  
         if (isSwipeLeft) {
-          panorama.setX(panorama.getX() - itemWidth);
+          if(panorama.getX() >= 0) {
+            panorama.setX(panorama.getX() - itemWidth);
+          }
         } else if (isSwipeRight) {
-          panorama.setX(panorama.getX() + itemWidth);
+          if(panorama.getX() < 0) {
+            panorama.setX(panorama.getX() + itemWidth + 2);
+          }
         }
  
     });
