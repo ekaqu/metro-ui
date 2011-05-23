@@ -8,8 +8,10 @@ YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y)
 
   panorama.setStyle('width', itemWidth * panoramaItemsCount + 20);
   panoramaItems.setStyle('width', itemWidth);
+
   /*
   panoramaItems.setStyle('height', Y.DOM.winHeight() - 98);
+  */
 
   panorama.on("gesturemovestart", function(e) {
     var item = e.currentTarget,
@@ -22,26 +24,23 @@ YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y)
     item.once("gesturemoveend", function(e) {
         var swipeStart = item.getData("swipeStart"),
             swipeEnd = e.pageX,
-            isSwipeLeft = (swipeStart - swipeEnd) > MIN_SWIPE;
+            isSwipeLeft = (swipeStart - swipeEnd) > MIN_SWIPE,
+            isSwipeRight = (swipeEnd - swipeStart ) > MIN_SWIPE;
  
         if (isSwipeLeft) {
-          panorama.transition({
-            left : -25
-          });
+          panorama.setX(panorama.getX() - itemWidth);
+        } else if (isSwipeRight) {
+          panorama.setX(panorama.getX() + itemWidth);
         }
  
     });
   });
-  */
 
 });
-YUI().use('scrollview', "scrollview-paginator", function(Y) {
+YUI().use('scrollview', function(Y) {
   var scrollView = new Y.ScrollView({
     srcNode: ".Panorama .Item",
     height: Y.DOM.winHeight() - 98
-  });
-  scrollView.plug(Y.Plugin.ScrollViewPaginator, {
-    selector: ".Panorama .Item"
   });
   scrollView.render();
 });
