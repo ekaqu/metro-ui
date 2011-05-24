@@ -24,6 +24,7 @@ ul, ol { list-style: none; padding: 0; margin: 0}
   overflow: auto;
   float: left;
   white-space: nowrap;
+  width: 250px; /* Only for devel, remove this later */
 }
 .Panorama .Item::-webkit-scrollbar {
   width: 5px;

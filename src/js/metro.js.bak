@@ -1,3 +1,18 @@
+YUI.add("metro-ui", function(Y) {
+  function Panorama (config) {
+    Panorama.superclass.constructor.apply(this, arguments);
+  }
+  Panorama.NAME = "panorama"; // used as prefix for events
+  Panorama.ATTRS = {};
+
+  Y.extend(Panorama, Y.ScrollView, {
+    initializer: function(cfg) {},
+    destructor: function() {}
+  });
+  Y.Panorama = Panorama; // adding to sandbox
+}, '0.0.1', {requires: ['event-flick']});
+
+
 YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y) {
   var panorama = Y.one('.Panorama'),
     panoramaItems = Y.all('.Panorama .Item'),
