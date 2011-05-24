@@ -37,7 +37,7 @@ YUI().use('node','event-flick', 'transition', function(Y) {
   panorama.on('flick', function(e) {
     var distance = e.flick.distance;
     swapItem(distance < 0);
-  }, { minDistance: 80, minVelocity: 0.2, preventDefault: false, axis: 'x' });
+  }, { minDistance: 80, minVelocity: 0.2, preventDefault: false /* if set to true crashes on android */, axis: 'x' });
 
   items.setStyles({ 'position': 'relative', 'left': '0' });
 });
