@@ -1,29 +1,25 @@
 YUI().use('node','event-flick', 'transition', function(Y) {
   var panorama = Y.one('.Panorama'),
     items = panorama.all('.Item'),
-    itemWidth = Number(items.item(0).getComputedStyle('width').replace('px', '')),
-    moveLeft = { 
-      left: { 
-        duration: 0.5, 
-        easing: 'ease-in', 
+    itemWidth = Number(items.item(0).getComputedStyle('width').replace('px', ''));
+
+  var mover = function(direction) {
+    return {
+      left: {
+        duration: 0.5,
+        easing: 'ease-in',
         value: function(item) {
           var x = Number(item.getStyle('left').replace('px', '')),
-            newX = Number(x - itemWidth) + "px"; 
-          return newX;
-        }
-      },
-    },
-    moveRight = {
-      left: {
-          duration: 0.5,
-          easing: 'ease-in',
-          value: function(item) {
-          var x = Number(item.getStyle('left').replace('px', '')),
-              newX = Number(x + itemWidth) + "px"; 
+              newX = (direction === "left")? Number(x - itemWidth) + "px" : Number(x + itemWidth) + "px"; 
+          Y.log(x);
+          Y.log(newX);
             return newX;
-          }
-      },
+        }
+      }
     }
+  }
+  var moveLeft = mover("left"),
+    moveRight = mover("right");
 
   var swapItem = function(left) {
     if(left) {
