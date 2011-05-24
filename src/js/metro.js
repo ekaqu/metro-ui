@@ -7,7 +7,7 @@ YUI().use('node','event-flick', 'transition', function(Y) {
     return {
       left: {
         duration: 0.5,
-        easing: 'ease-in',
+        easing: 'ease-in-out',
         value: function(item) {
           var x = Number(item.getStyle('left').replace('px', '')),
               newX = (direction === "left")? Number(x - itemWidth) + "px" : Number(x + itemWidth) + "px"; 
