@@ -19,6 +19,7 @@ ul, ol { list-style: none; padding: 0; margin: 0}
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
+  display: inline-block;
 }
 .Panorama .Item {
   overflow: auto;
