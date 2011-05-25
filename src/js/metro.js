@@ -1,4 +1,4 @@
-YUI().use('node','event-flick', 'transition', function(Y) {
+YUI().use('node','event-flick', 'transition', 'scrollview', function(Y) {
   var panorama = Y.one('.Panorama'),
     title = panorama.one('.Title'),
     titleWidth = Number(title.getComputedStyle('width').replace('px','')),
@@ -6,7 +6,6 @@ YUI().use('node','event-flick', 'transition', function(Y) {
     itemsCount = items._nodes.length,
     itemWidth = Number(items.item(0).getComputedStyle('width').replace('px', ''));
 
-  Y.log(titleWidth);
   var mover = function(cfb) {
     var direction = cfb.direction,
       title = cfb.title;
@@ -52,4 +51,11 @@ YUI().use('node','event-flick', 'transition', function(Y) {
 
   items.setStyles({ 'position': 'relative', 'left': '0' });
   title.setStyles({ 'position': 'relative', 'left': '0' });
+
+  items.each(function(item) {
+    new Y.ScrollView({
+      srcNode: item,
+      height: 200
+    }).render();
+  });
 });
