@@ -1,49 +1,36 @@
-html, body, { padding: 0; margin: 0;}
-ul, ol { list-style: none; padding: 0; margin: 0}
+html, body, ul, ol, .Panorama .Title, .Panorama .Item .Header { padding: 0; margin: 0;}
+ul, ol { list-style: none; }
+html, body, .Frame, .Page, .Panorama { height: 100%; }
 .Frame {}
-.Page { padding-left: 10px; }
+.Page { 
+  padding-left: 10px; 
+  width: 280px;
+  overflow: hidden;
+}
 .Page * {
   font-family: "Verdana";
-}
-.Panorama {
-  position: absolute;
-  overflow: hidden;
-  left: 0px;
-  border: 1px solid black;
-  width: 280px;
-}
-.Panorama .Title {
-  font-size: 66px;
   font-weight:normal;
   font-style: normal;
+}
+.Panorama {}
+.Panorama .Title {
+  font-size: 66px;
   line-height: 66px;
   height: 66px;
-  padding: 0;
-  margin: 0;
   margin-bottom: 15px;
-  display: inline-block;
 }
 .Panorama .Scroller {
   width: 10000px;
 }
-.Panorama .Scroller::-webkit-scrollbar {
+.Panorama .Scroller::-webkit-scrollbar, .Panorama .Item::-webkit-scrollbar {
   width: 5px;
 }
 .Panorama .Item {
   overflow: auto;
   float: left;
-  white-space: nowrap;
   width: 250px; /* Only for devel, remove this later */
-  border: 1px solid black;
 }
-.Panorama .Item::-webkit-scrollbar {
-  width: 5px;
-}
-.Panorama .Item .Header {
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
-}
+.Panorama .Item .Header {}
 
 /* For YUI */
 .yui3-js-enabled .yui3-scrollview-loading {
