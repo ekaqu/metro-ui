@@ -1,3 +1,4 @@
+/*
 YUI.add("metro-ui", function(Y) {
   function Panorama (config) {
     Panorama.superclass.constructor.apply(this, arguments);
@@ -11,6 +12,7 @@ YUI.add("metro-ui", function(Y) {
   });
   Y.Panorama = Panorama; // adding to sandbox
 }, '0.0.1', {requires: ['event-flick']});
+*/
 
 
 YUI().use('node', 'node-event-delegate', 'event-move', 'transition', function(Y) {

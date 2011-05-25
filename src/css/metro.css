@@ -9,6 +9,8 @@ ul, ol { list-style: none; padding: 0; margin: 0}
   position: absolute;
   overflow: hidden;
   left: 0px;
+  border: 1px solid black;
+  width: 280px;
 }
 .Panorama .Title {
   font-size: 66px;
@@ -21,11 +23,18 @@ ul, ol { list-style: none; padding: 0; margin: 0}
   margin-bottom: 15px;
   display: inline-block;
 }
+.Panorama .Scroller {
+  width: 10000px;
+}
+.Panorama .Scroller::-webkit-scrollbar {
+  width: 5px;
+}
 .Panorama .Item {
   overflow: auto;
   float: left;
   white-space: nowrap;
   width: 250px; /* Only for devel, remove this later */
+  border: 1px solid black;
 }
 .Panorama .Item::-webkit-scrollbar {
   width: 5px;
